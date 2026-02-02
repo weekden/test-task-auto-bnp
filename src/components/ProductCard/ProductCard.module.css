@@ -1,0 +1,61 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  width: 100%;
+  max-width: 30rem;
+  padding: 1.6rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.8rem;
+
+  background-color: rgb(253 253 253);
+}
+
+.image {
+  display: block;
+
+  width: 100%;
+  height: 20rem;
+  margin: 0 auto;
+
+  object-fit: contain;
+}
+
+.title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
+  margin-top: 0.1rem;
+
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.price {
+  margin-top: 0.5rem;
+  color: #6b7280;
+}
+
+.description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  font-size: 1.2rem;
+}
+
+.count {
+  align-self: end;
+}
+
+.inStock {
+  color: #01a53d;
+}
+
+.outOfStock {
+  color: #f66161;
+}

@@ -1,0 +1,17 @@
+.page {
+  padding: 2.4rem;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
