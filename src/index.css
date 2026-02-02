@@ -16,7 +16,13 @@
 }
 
 html {
+  overflow-y: scroll;
   font-size: 62.5%;
+}
+
+body {
+  width: 100%;
+  max-width: 144rem;
 }
 
 a {
@@ -27,15 +33,6 @@ a {
 
 a:hover {
   color: #535bf2;
-}
-
-body {
-  display: flex;
-  place-items: center;
-
-  min-width: 380px;
-  min-height: 100vh;
-  margin: 0;
 }
 
 button {

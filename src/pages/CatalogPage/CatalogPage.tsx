@@ -28,16 +28,16 @@ export const CatalogPage = () => {
     loadProducts();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <div className={styles.center}>Loading...</div>;
+  if (error) return <div className={styles.center}>Error: {error}</div>;
 
   return (
-    <section className={styles.page}>
+    <>
       <div className={styles.flex}>
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
-    </section>
+    </>
   );
 };
