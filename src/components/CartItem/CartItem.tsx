@@ -1,3 +1,5 @@
+import { useAppDispatch } from '../../hooks/redux';
+import { decreaseQuantity, increaseQuantity, removeItemFromCart } from '../../store/cartSlice';
 import type { CartItemType } from '../../types';
 import styles from './CartItem.module.css';
 
@@ -6,6 +8,7 @@ interface CartItemProps {
 }
 
 function CartItem({ item }: CartItemProps) {
+  const dispatch = useAppDispatch();
   return (
     <div className={styles.item}>
       <div className={styles.product}>
@@ -17,14 +20,24 @@ function CartItem({ item }: CartItemProps) {
         <p className={styles.price}>${item.product.price.toFixed(2)}</p>
 
         <div className={styles.quantity}>
-          <button>-</button>
+          <button
+            disabled={item.quantity === 1}
+            onClick={() => dispatch(decreaseQuantity(item.product.id))}
+          >
+            -
+          </button>
           <span>{item.quantity}</span>
-          <button>+</button>
+          <button onClick={() => dispatch(increaseQuantity(item.product.id))}>+</button>
         </div>
 
         <p className={styles.subtotal}>${(item.product.price * item.quantity).toFixed(2)}</p>
 
-        <button className={styles.remove}>Remove</button>
+        <button
+          className={styles.remove}
+          onClick={() => dispatch(removeItemFromCart(item.product.id))}
+        >
+          Remove
+        </button>
       </div>
     </div>
   );
