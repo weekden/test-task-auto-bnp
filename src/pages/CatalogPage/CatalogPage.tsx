@@ -41,6 +41,7 @@ export const CatalogPage = () => {
 
   return (
     <section className={styles.content}>
+      <h2 className={styles.title}>Catalog Page</h2>
       <div className={styles.flex}>
         {currentProductList.map((product) => (
           <ProductCard key={product.id} product={product} />
