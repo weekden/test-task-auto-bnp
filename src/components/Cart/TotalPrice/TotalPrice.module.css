@@ -1,0 +1,30 @@
+.total {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  align-self: end;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 30%;
+  padding: 1.6rem;
+
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.value {
+  font-size: 2rem;
+}
+
+@media (width <= 768px) {
+  .total {
+    max-width: 50%;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+  }
+
+  .value {
+    font-size: 1.8rem;
+  }
+}

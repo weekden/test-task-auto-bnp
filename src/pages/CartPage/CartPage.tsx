@@ -1,4 +1,5 @@
-import CartItem from '../../components/CartItem/CartItem';
+import CartItem from '../../components/Cart/CartItem/CartItem';
+import TotalPrice from '../../components/Cart/TotalPrice/TotalPrice';
 import { useAppSelector } from '../../hooks/redux';
 import { selectCartItems } from '../../store/selectors';
 import styles from './CartPage.module.css';
@@ -20,6 +21,7 @@ function CartPage() {
           </li>
         ))}
       </ul>
+      <TotalPrice></TotalPrice>
     </section>
   );
 }

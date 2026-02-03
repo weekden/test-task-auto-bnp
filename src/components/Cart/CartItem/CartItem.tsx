@@ -1,6 +1,6 @@
-import { useAppDispatch } from '../../hooks/redux';
-import { decreaseQuantity, increaseQuantity, removeItemFromCart } from '../../store/cartSlice';
-import type { CartItemType } from '../../types';
+import { useAppDispatch } from '../../../hooks/redux';
+import { decreaseQuantity, increaseQuantity, removeItemFromCart } from '../../../store/cartSlice';
+import type { CartItemType } from '../../../types';
 import styles from './CartItem.module.css';
 
 interface CartItemProps {
