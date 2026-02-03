@@ -1,8 +1,11 @@
 import { NavLink } from 'react-router-dom';
 
+import { useAppSelector } from '../../hooks/redux';
+import { selectCartTotalCount } from '../../store/selectors';
 import styles from './Header.module.css';
 
 function Header() {
+  const cartTotalCount = useAppSelector(selectCartTotalCount);
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -37,7 +40,7 @@ function Header() {
             >
               Cart
             </NavLink>
-            <span className={styles.coin}>1</span>
+            {cartTotalCount > 0 && <span className={styles.coin}>{cartTotalCount}</span>}
           </li>
         </ul>
       </nav>
