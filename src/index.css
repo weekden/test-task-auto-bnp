@@ -1,4 +1,21 @@
 :root {
+  --color-bg: #fdfdfd;
+  --color-header-bg: #b5b5b5;
+  --color-card-bg: #d2d2d2;
+  --color-text: #000;
+  --color-secondary-text: #7e8697;
+  --color-link: blueviolet;
+  --color-link-hover: #7f00ff;
+  --color-border: #e5e5e5;
+  --color-panel-border: #e5e7eb;
+  --color-button-bg: #626f84;
+  --color-button-hover: #484e5b;
+  --color-cart: brown;
+  --color-remove: #f26f71;
+  --color-remove-hover: #c53c3f;
+  --color-in-stock: #01a53d;
+  --color-out-of-stock: #f66161;
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-synthesis: none;
@@ -7,6 +24,27 @@
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+[data-theme='dark'] {
+  --color-bg: #acacac;
+  --color-header-bg: #888;
+  --color-card-bg: #727070;
+  --color-text: #e0e0e0;
+  --color-secondary-text: #45494f;
+  --color-link: #bb86fc;
+  --color-link-hover: #d0aaff;
+  --color-border: #333;
+  --color-panel-border: #2c2c2c;
+  --color-button-bg: #333;
+  --color-button-hover: #444;
+  --color-cart: #ff5c5c;
+  --color-remove: #e13c3f;
+  --color-remove-hover: #c53c3f;
+  --color-in-stock: #3fcf7f;
+  --color-out-of-stock: #f88a8a;
+  --color-theme-toggle-bg: #1f1f1f;
+  --color-theme-toggle-hover: #2a2a2a;
 }
 
 * {
@@ -25,6 +63,11 @@ body {
   margin: 0 auto;
 }
 
+main {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
 button {
   cursor: pointer;
 
@@ -35,8 +78,9 @@ button {
   font-family: inherit;
   font-size: 1em;
   font-weight: 500;
+  color: var(--color-text);
 
-  background-color: #cecece;
+  background-color: var(--color-button-bg);
 
   transition:
     border-color 0.25s ease-in-out,
@@ -44,12 +88,7 @@ button {
 }
 
 button:hover {
-  background-color: #c3c3c3;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: var(--color-button-hover);
 }
 
 button:disabled {

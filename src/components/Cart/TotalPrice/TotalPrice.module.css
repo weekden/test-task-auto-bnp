@@ -11,10 +11,12 @@
 
   font-size: 1.8rem;
   font-weight: 600;
+  color: var(--color-text-secondary);
 }
 
 .value {
   font-size: 2rem;
+  color: var(--color-text-secondary);
 }
 
 @media (width <= 768px) {

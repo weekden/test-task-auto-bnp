@@ -5,7 +5,7 @@
 
   width: 26rem;
   padding: 1.6rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-panel-border);
   border-radius: 0.8rem;
 }
 
@@ -42,7 +42,7 @@
   cursor: pointer;
 
   padding: 1rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--color-border);
   border-radius: 0.8rem;
 
   font-size: 1.4rem;
@@ -50,12 +50,12 @@
 
 .reset {
   font-size: 1.4rem;
-  color: #fff;
-  background-color: #f26f71;
+  color: var(--color-text);
+  background-color: var(--color-remove);
 }
 
 .reset:hover {
-  background-color: #c53c3f;
+  background-color: var(--color-remove-hover);
 }
 
 @media (width <= 860px) {

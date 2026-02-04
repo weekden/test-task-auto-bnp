@@ -30,3 +30,5 @@ export interface CatalogState {
   sortOrder: 'asc' | 'desc' | '';
   searchQuery: string;
 }
+
+export type ThemeType = 'light' | 'dark';

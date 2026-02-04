@@ -6,10 +6,10 @@
   width: 100%;
   max-width: 26rem;
   padding: 1.6rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-panel-border);
   border-radius: 0.8rem;
 
-  background-color: rgb(253 253 253);
+  background-color: var(--color-card-bg);
 }
 
 .image {
@@ -32,11 +32,12 @@
 
   font-size: 1.4rem;
   font-weight: 600;
+  color: var(--color-text);
 }
 
 .price {
   margin-top: 0.5rem;
-  color: #6b7280;
+  color: var(--color-secondary-text);
 }
 
 .description {
@@ -46,6 +47,7 @@
   -webkit-line-clamp: 2;
 
   font-size: 1.2rem;
+  color: var(--color-text);
 }
 
 .count {
@@ -53,11 +55,11 @@
 }
 
 .inStock {
-  color: #01a53d;
+  color: var(--color-in-stock);
 }
 
 .outOfStock {
-  color: #f66161;
+  color: var(--color-out-of-stock);
 }
 
 @media (width <= 1140px) {
