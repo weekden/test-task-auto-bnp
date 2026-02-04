@@ -4,6 +4,10 @@
   gap: 2.4rem;
   align-items: center;
   justify-content: space-between;
+
+  width: 100%;
+  max-width: 144rem;
+  margin: 0 auto;
 }
 
 .productsFlex {
@@ -16,7 +20,7 @@
 
 .content {
   display: flex;
-  gap: 1.6rem;
+  gap: 2.4rem;
   align-items: start;
   justify-content: space-between;
 
@@ -40,9 +44,11 @@
   gap: 2.4rem;
   align-items: center;
   justify-content: center;
+
+  width: 100%;
 }
 
-@media (width <= 768px) {
+@media (width <= 860px) {
   .content {
     flex-direction: column;
     gap: 1.6rem;

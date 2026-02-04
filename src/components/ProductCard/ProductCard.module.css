@@ -4,7 +4,7 @@
   gap: 1rem;
 
   width: 100%;
-  max-width: 30rem;
+  max-width: 26rem;
   padding: 1.6rem;
   border: 1px solid #e5e7eb;
   border-radius: 0.8rem;
@@ -58,4 +58,22 @@
 
 .outOfStock {
   color: #f66161;
+}
+
+@media (width <= 1140px) {
+  .card {
+    max-width: 22rem;
+  }
+}
+
+@media (width <= 1100px) {
+  .card {
+    max-width: 26rem;
+  }
+}
+
+@media (width <= 860px) {
+  .card {
+    max-width: 28rem;
+  }
 }

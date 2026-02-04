@@ -39,8 +39,8 @@ function Header() {
               }
             >
               Cart
+              {cartTotalCount > 0 && <span className={styles.coin}>{cartTotalCount}</span>}
             </NavLink>
-            {cartTotalCount > 0 && <span className={styles.coin}>{cartTotalCount}</span>}
           </li>
         </ul>
       </nav>

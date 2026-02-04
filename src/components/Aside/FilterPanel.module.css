@@ -58,7 +58,7 @@
   background-color: #c53c3f;
 }
 
-@media (width <= 768px) {
+@media (width <= 860px) {
   .panel {
     flex-flow: row wrap;
     gap: 1.6rem;
@@ -71,5 +71,7 @@
 
   .reset {
     width: 100%;
+    max-width: 30rem;
+    margin: 0 auto;
   }
 }
