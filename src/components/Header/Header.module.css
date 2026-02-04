@@ -19,12 +19,9 @@
 }
 
 .link {
-  position: relative;
-
   font-size: 1.4rem;
   color: black;
   text-decoration: none;
-
   transition: color 0.25s ease-in-out;
 }
 
@@ -34,6 +31,10 @@
 
 .active {
   color: blueviolet;
+}
+
+.li {
+  position: relative;
 }
 
 .coin {
