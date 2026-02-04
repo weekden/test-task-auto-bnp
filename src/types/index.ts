@@ -28,4 +28,5 @@ export interface CatalogState {
   isFilters: boolean;
   sortBy: 'price' | 'title' | '';
   sortOrder: 'asc' | 'desc' | '';
+  searchQuery: string;
 }

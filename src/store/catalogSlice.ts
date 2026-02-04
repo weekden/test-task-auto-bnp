@@ -10,6 +10,7 @@ const initialState: CatalogState = {
   isFilters: false,
   sortBy: '',
   sortOrder: '',
+  searchQuery: '',
 };
 
 export const productsSlice = createSlice({
@@ -49,15 +50,25 @@ export const productsSlice = createSlice({
       state.currentPage = 1;
     },
 
+    setSearchQuery(state, action: PayloadAction<string>) {
+      state.searchQuery = action.payload;
+      if (state.searchQuery.length > 0) {
+        state.isFilters = true;
+      }
+      state.currentPage = 1;
+    },
+
     resetFilter: (state) => {
       state.isFilters = false;
       state.selectedCategory = [];
       state.sortBy = '';
       state.sortOrder = '';
+      state.searchQuery = '';
       state.currentPage = 1;
     },
   },
 });
 
-export const { setProducts, setPage, toggleCategory, setSort, resetFilter } = productsSlice.actions;
+export const { setProducts, setPage, toggleCategory, setSort, setSearchQuery, resetFilter } =
+  productsSlice.actions;
 export default productsSlice.reducer;

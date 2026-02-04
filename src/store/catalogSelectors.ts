@@ -23,15 +23,22 @@ export const selectSelectedSort = (state: RootState) => {
 export const selectIsFilters = (state: RootState) => {
   return state.catalog.isFilters || selectCatalogSortBy(state) || selectCatalogSortOrder(state);
 };
+export const selectSearchInputValue = (state: RootState) => state.catalog.searchQuery;
 
 export const selectFilteredProducts = (state: RootState) => {
   const sortOrder = state.catalog.sortOrder;
   const sortBy = state.catalog.sortBy;
+
   let products = [...selectCatalogItems(state)];
 
   const selectedCategory = selectSelectedCategory(state);
   if (selectedCategory.length) {
     products = products.filter((item) => selectedCategory.includes(item.category));
+  }
+
+  if (state.catalog.searchQuery) {
+    const query = state.catalog.searchQuery.toLocaleLowerCase();
+    products = products.filter((item) => item.title.toLocaleLowerCase().includes(query));
   }
 
   if (sortBy === 'price') {
