@@ -8,7 +8,7 @@ import {
   selectSelectedSort,
 } from '../../store/catalogSelectors';
 import { resetFilter, setSort, toggleCategory } from '../../store/catalogSlice';
-import SearchInput from '../SearchInput/SaerchInput';
+import SearchInput from '../SearchInput/SearchInput';
 import styles from './FilterPanel.module.css';
 
 function FilterPanel() {
