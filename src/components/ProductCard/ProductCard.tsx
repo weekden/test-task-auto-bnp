@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 import { useAppDispatch } from '../../hooks/redux';
 import { addToCart } from '../../store/cartSlice';
 import type { Product } from '../../types';
@@ -12,6 +14,7 @@ function ProductCard({ product }: ProductCardProps) {
 
   const addProductToCart = () => {
     dispatch(addToCart(product));
+    toast.success(`${product.title} added to cart`);
   };
 
   return (
