@@ -102,6 +102,6 @@ cd <project-folder>
 - Команда `npm run dev`
 
   **Deploy (Vercel, Preview):**  
-  https://<test-task-auto-otg6ysstk-denis-nedelkos-projects.vercel.app>
+  [link](https://test-task-auto-otg6ysstk-denis-nedelkos-projects.vercel.app)
 
   Деплой реализован на Preview по причене того, что проект не был слит в ветку main. По моему мнению нуждается в доработке. На данном этапе считаю правильным сделать PR из develop => main.
