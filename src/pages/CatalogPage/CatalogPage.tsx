@@ -3,22 +3,29 @@ import { useEffect, useState } from 'react';
 import { fetchProducts } from '../../api/products';
 import Pagination from '../../components/Pagination/Pagination';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import type { Product } from '../../types';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import {
+  selectCurrentPage,
+  selectPaginatedProducts,
+  selectTotalPages,
+} from '../../store/catalogSelectors';
+import { setPage, setProducts } from '../../store/catalogSlice';
 import styles from './CatalogPage.module.css';
 
-const ITEMS_ON_PAGE = 12;
-
 export const CatalogPage = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const dispatch = useAppDispatch();
+  const products = useAppSelector(selectPaginatedProducts);
+  const currentPage = useAppSelector(selectCurrentPage);
+  const totalPages = useAppSelector(selectTotalPages);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const loadProducts = async () => {
       try {
         const data = await fetchProducts();
-        setProducts(data);
+        dispatch(setProducts(data));
       } catch (error: unknown) {
         if (error instanceof Error) {
           setError(error.message);
@@ -30,11 +37,7 @@ export const CatalogPage = () => {
       }
     };
     loadProducts();
-  }, []);
-
-  const totalPages = Math.ceil(products.length / ITEMS_ON_PAGE);
-  const startIndex = (page - 1) * ITEMS_ON_PAGE;
-  const currentProductList = products.slice(startIndex, startIndex + ITEMS_ON_PAGE);
+  }, [dispatch]);
 
   if (loading) return <div className={styles.center}>Loading...</div>;
   if (error) return <div className={styles.center}>Error: {error}</div>;
@@ -43,15 +46,15 @@ export const CatalogPage = () => {
     <section className={styles.content}>
       <h2 className={styles.title}>Catalog Page</h2>
       <div className={styles.flex}>
-        {currentProductList.map((product) => (
+        {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
       <Pagination
-        onPrev={() => setPage((prev) => prev - 1)}
-        onNext={() => setPage((prev) => prev + 1)}
-        currentPage={page}
-        isLastPage={page === totalPages}
+        onPrev={() => dispatch(setPage(currentPage - 1))}
+        onNext={() => dispatch(setPage(currentPage + 1))}
+        currentPage={currentPage}
+        isLastPage={currentPage === totalPages}
         totalPages={totalPages}
       />
     </section>

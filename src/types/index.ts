@@ -15,3 +15,13 @@ export interface CartItemType {
   product: Product;
   quantity: number;
 }
+
+export type CartState = {
+  items: CartItemType[];
+};
+
+export interface CatalogState {
+  items: Product[];
+  currentPage: number;
+  itemsPerPage: number;
+}
