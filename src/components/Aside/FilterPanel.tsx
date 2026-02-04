@@ -6,8 +6,8 @@ import {
   selectIsFilters,
   selectSelectedCategory,
   selectSelectedSort,
-} from '../../store/catalogSelectors';
-import { resetFilter, setSort, toggleCategory } from '../../store/catalogSlice';
+} from '../../store/selectors/catalogSelectors';
+import { resetFilter, setSort, toggleCategory } from '../../store/slices/catalogSlice';
 import SearchInput from '../SearchInput/SearchInput';
 import styles from './FilterPanel.module.css';
 

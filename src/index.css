@@ -1,13 +1,13 @@
 :root {
   --color-bg: #fdfdfd;
   --color-header-bg: #b5b5b5;
-  --color-card-bg: #d2d2d2;
+  --color-card-bg: #e8e7e7;
   --color-text: #000;
   --color-secondary-text: #7e8697;
   --color-link: blueviolet;
   --color-link-hover: #7f00ff;
   --color-border: #e5e5e5;
-  --color-panel-border: #e5e7eb;
+  --color-panel-border: #c4c4c4;
   --color-button-bg: #626f84;
   --color-button-hover: #484e5b;
   --color-cart: brown;
@@ -31,7 +31,7 @@
   --color-header-bg: #888;
   --color-card-bg: #727070;
   --color-text: #e0e0e0;
-  --color-secondary-text: #45494f;
+  --color-secondary-text: #373a40;
   --color-link: #bb86fc;
   --color-link-hover: #d0aaff;
   --color-border: #333;

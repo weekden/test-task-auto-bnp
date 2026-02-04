@@ -10,8 +10,8 @@ import {
   selectCurrentPage,
   selectPaginatedProducts,
   selectTotalPages,
-} from '../../store/catalogSelectors';
-import { setPage, setProducts } from '../../store/catalogSlice';
+} from '../../store/selectors/catalogSelectors';
+import { setPage, setProducts } from '../../store/slices/catalogSlice';
 import styles from './CatalogPage.module.css';
 
 export const CatalogPage = () => {

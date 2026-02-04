@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 
 import { useAppDispatch } from '../../hooks/redux';
-import { addToCart } from '../../store/cartSlice';
+import { addToCart } from '../../store/slices/cartSlice';
 import type { Product } from '../../types';
 import styles from './ProductCard.module.css';
 

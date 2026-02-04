@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { selectSearchInputValue } from '../../store/catalogSelectors';
-import { setSearchQuery } from '../../store/catalogSlice';
+import { selectSearchInputValue } from '../../store/selectors/catalogSelectors';
+import { setSearchQuery } from '../../store/slices/catalogSlice';
 import styles from './SearchInput.module.css';
 
 function Search() {

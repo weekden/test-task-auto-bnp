@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-import type { CartState, Product } from '../types';
+import type { CartState, Product } from '../../types';
 
 const initialState: CartState = {
   items: JSON.parse(localStorage.getItem('cart') || '[]'),

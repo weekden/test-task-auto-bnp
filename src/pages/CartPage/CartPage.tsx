@@ -1,7 +1,7 @@
 import CartItem from '../../components/Cart/CartItem/CartItem';
 import TotalPrice from '../../components/Cart/TotalPrice/TotalPrice';
 import { useAppSelector } from '../../hooks/redux';
-import { selectCartItems } from '../../store/selectors';
+import { selectCartItems } from '../../store/selectors/cartSelectors';
 import styles from './CartPage.module.css';
 
 function CartPage() {

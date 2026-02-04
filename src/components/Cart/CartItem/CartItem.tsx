@@ -1,5 +1,9 @@
 import { useAppDispatch } from '../../../hooks/redux';
-import { decreaseQuantity, increaseQuantity, removeItemFromCart } from '../../../store/cartSlice';
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeItemFromCart,
+} from '../../../store/slices/cartSlice';
 import type { CartItemType } from '../../../types';
 import styles from './CartItem.module.css';
 

@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../../hooks/redux';
-import { selectCartTotalPrice } from '../../../store/selectors';
+import { selectCartTotalPrice } from '../../../store/selectors/cartSelectors';
 import styles from './TotalPrice.module.css';
 
 function TotalPrice() {

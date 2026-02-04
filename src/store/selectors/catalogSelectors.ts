@@ -1,4 +1,4 @@
-import type { RootState } from './index';
+import type { RootState } from '../index';
 
 export const selectCatalogItems = (state: RootState) => state.catalog.items;
 export const selectCurrentPage = (state: RootState) => state.catalog.currentPage;

@@ -5,7 +5,7 @@ import cartImg from '../../../public/icons/cart.png';
 import moonImg from '../../../public/icons/moon.png';
 import sunImg from '../../../public/icons/sun.png';
 import { useAppSelector } from '../../hooks/redux';
-import { selectCartTotalCount } from '../../store/selectors';
+import { selectCartTotalCount } from '../../store/selectors/cartSelectors';
 import type { ThemeType } from '../../types';
 import styles from './Header.module.css';
 
