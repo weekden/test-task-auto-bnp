@@ -37,6 +37,11 @@
   position: relative;
 }
 
+.cart {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
 .coin {
   position: absolute;
   top: -1rem;

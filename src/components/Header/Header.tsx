@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 
+import cartImg from '../../../public/icons/cart.png';
 import { useAppSelector } from '../../hooks/redux';
 import { selectCartTotalCount } from '../../store/selectors';
 import styles from './Header.module.css';
-
 function Header() {
   const cartTotalCount = useAppSelector(selectCartTotalCount);
   return (
@@ -38,7 +38,7 @@ function Header() {
                 isActive ? `${styles.link} ${styles.active}` : styles.link
               }
             >
-              Cart
+              <img src={cartImg} alt="Cart" className={styles.cart} />
             </NavLink>
             {cartTotalCount > 0 && <span className={styles.coin}>{cartTotalCount}</span>}
           </li>
