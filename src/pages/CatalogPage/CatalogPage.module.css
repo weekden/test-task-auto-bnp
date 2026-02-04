@@ -1,9 +1,23 @@
-.flex {
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productsFlex {
   display: flex;
   flex-wrap: wrap;
   gap: 1.6rem;
   align-items: center;
   justify-content: center;
+}
+
+.content {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
 }
 
 .center {
@@ -13,10 +27,22 @@
   min-height: 100vh;
 }
 
-.content {
+.productsSection {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: 2.4rem;
   align-items: center;
   justify-content: center;
+}
+
+@media (width <= 768px) {
+  .content {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  .aside {
+    width: 100%;
+  }
 }

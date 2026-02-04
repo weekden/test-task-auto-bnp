@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { fetchProducts } from '../../api/products';
+import FilterPanel from '../../components/Aside/FilterPanel';
 import Pagination from '../../components/Pagination/Pagination';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
@@ -43,20 +44,27 @@ export const CatalogPage = () => {
   if (error) return <div className={styles.center}>Error: {error}</div>;
 
   return (
-    <section className={styles.content}>
+    <section className={styles.section}>
       <h2 className={styles.title}>Catalog Page</h2>
-      <div className={styles.flex}>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+      <div className={styles.content}>
+        <aside className={styles.aside}>
+          <FilterPanel></FilterPanel>
+        </aside>
+        <div className={styles.productsSection}>
+          <div className={styles.productsFlex}>
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+          <Pagination
+            onPrev={() => dispatch(setPage(currentPage - 1))}
+            onNext={() => dispatch(setPage(currentPage + 1))}
+            currentPage={currentPage}
+            isLastPage={currentPage === totalPages}
+            totalPages={totalPages}
+          />
+        </div>
       </div>
-      <Pagination
-        onPrev={() => dispatch(setPage(currentPage - 1))}
-        onNext={() => dispatch(setPage(currentPage + 1))}
-        currentPage={currentPage}
-        isLastPage={currentPage === totalPages}
-        totalPages={totalPages}
-      />
     </section>
   );
 };
