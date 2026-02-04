@@ -13,6 +13,8 @@ export const selectPaginatedProducts = (state: RootState) => {
   return catalogItems.slice(startIndex, startIndex + state.catalog.itemsPerPage);
 };
 
+export const selectIsFilters = (state: RootState) => state.catalog.isFilters;
+
 export const selectSelectedCategory = (state: RootState) => state.catalog.selectedCategory;
 
 export const selectFilteredProducts = (state: RootState) => {

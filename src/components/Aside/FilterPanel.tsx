@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { fetchCategories } from '../../api/products';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { selectSelectedCategory } from '../../store/catalogSelectors';
+import { selectIsFilters, selectSelectedCategory } from '../../store/catalogSelectors';
 import { toggleCategory } from '../../store/catalogSlice';
 import styles from './FilterPanel.module.css';
 
@@ -13,6 +13,7 @@ function FilterPanel() {
 
   const dispatch = useAppDispatch();
   const selectedCategory = useAppSelector(selectSelectedCategory);
+  const isFilters = useAppSelector(selectIsFilters);
 
   useEffect(() => {
     const loadCategories = async () => {
@@ -68,7 +69,9 @@ function FilterPanel() {
         </div>
       </div>
 
-      <button className={styles.reset}>Reset filters</button>
+      <button className={styles.reset} disabled={!isFilters}>
+        Reset filters
+      </button>
     </div>
   );
 }

@@ -7,6 +7,7 @@ const initialState: CatalogState = {
   currentPage: 1,
   itemsPerPage: 12,
   selectedCategory: [],
+  isFilters: false,
 };
 
 export const productsSlice = createSlice({
@@ -26,8 +27,12 @@ export const productsSlice = createSlice({
       const index = state.selectedCategory.findIndex((item) => item === category);
       if (index === -1) {
         state.selectedCategory.push(category);
+        state.isFilters = true;
       } else {
         state.selectedCategory.splice(index, 1);
+        if (state.selectedCategory.length === 0) {
+          state.isFilters = false;
+        }
       }
       state.currentPage = 1;
     },

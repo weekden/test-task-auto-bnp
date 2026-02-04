@@ -25,4 +25,5 @@ export interface CatalogState {
   currentPage: number;
   itemsPerPage: number;
   selectedCategory: string[];
+  isFilters: boolean;
 }
