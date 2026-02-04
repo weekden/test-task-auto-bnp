@@ -51,18 +51,27 @@ export const CatalogPage = () => {
           <FilterPanel></FilterPanel>
         </aside>
         <div className={styles.productsSection}>
-          <div className={styles.productsFlex}>
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-          <Pagination
-            onPrev={() => dispatch(setPage(currentPage - 1))}
-            onNext={() => dispatch(setPage(currentPage + 1))}
-            currentPage={currentPage}
-            isLastPage={currentPage === totalPages}
-            totalPages={totalPages}
-          />
+          {products.length === 0 ? (
+            <div className={styles.center}>
+              <h3>No products found</h3>
+              <p>Try changing search or filters</p>
+            </div>
+          ) : (
+            <div className={styles.productsFlex}>
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          )}
+          {products.length > 0 && (
+            <Pagination
+              onPrev={() => dispatch(setPage(currentPage - 1))}
+              onNext={() => dispatch(setPage(currentPage + 1))}
+              currentPage={currentPage}
+              isLastPage={currentPage === totalPages}
+              totalPages={totalPages}
+            />
+          )}
         </div>
       </div>
     </section>
