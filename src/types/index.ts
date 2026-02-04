@@ -26,4 +26,6 @@ export interface CatalogState {
   itemsPerPage: number;
   selectedCategory: string[];
   isFilters: boolean;
+  sortBy: 'price' | 'title' | '';
+  sortOrder: 'asc' | 'desc' | '';
 }

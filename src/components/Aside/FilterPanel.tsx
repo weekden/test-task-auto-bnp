@@ -2,8 +2,12 @@ import { useEffect, useState } from 'react';
 
 import { fetchCategories } from '../../api/products';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { selectIsFilters, selectSelectedCategory } from '../../store/catalogSelectors';
-import { toggleCategory } from '../../store/catalogSlice';
+import {
+  selectIsFilters,
+  selectSelectedCategory,
+  selectSelectedSort,
+} from '../../store/catalogSelectors';
+import { resetFilter, setSort, toggleCategory } from '../../store/catalogSlice';
 import styles from './FilterPanel.module.css';
 
 function FilterPanel() {
@@ -13,6 +17,7 @@ function FilterPanel() {
 
   const dispatch = useAppDispatch();
   const selectedCategory = useAppSelector(selectSelectedCategory);
+  const selectedSort = useAppSelector(selectSelectedSort);
   const isFilters = useAppSelector(selectIsFilters);
 
   useEffect(() => {
@@ -59,17 +64,43 @@ function FilterPanel() {
         <h3 className={styles.title}>Sort</h3>
 
         <div className={styles.sortGroup}>
-          <select className={styles.select}>
+          <select
+            value={selectedSort}
+            className={styles.select}
+            onChange={(e) => {
+              switch (e.target.value) {
+                case 'price-asc':
+                  dispatch(setSort({ sortBy: 'price', sortOrder: 'asc' }));
+                  break;
+                case 'price-desc':
+                  dispatch(setSort({ sortBy: 'price', sortOrder: 'desc' }));
+                  break;
+                case 'title-asc':
+                  dispatch(setSort({ sortBy: 'title', sortOrder: 'asc' }));
+                  break;
+                case 'title-desc':
+                  dispatch(setSort({ sortBy: 'title', sortOrder: 'desc' }));
+                  break;
+                default:
+                  dispatch(setSort({ sortBy: '', sortOrder: '' }));
+                  break;
+              }
+            }}
+          >
             <option value="">No sort</option>
             <option value="price-asc">Price ↑</option>
             <option value="price-desc">Price ↓</option>
-            <option value="title-asc">A → Z</option>
-            <option value="title-desc">Z → A</option>
+            <option value="title-asc">Name A → Z</option>
+            <option value="title-desc">Name Z → A</option>
           </select>
         </div>
       </div>
 
-      <button className={styles.reset} disabled={!isFilters}>
+      <button
+        className={styles.reset}
+        disabled={!isFilters}
+        onClick={() => dispatch(resetFilter())}
+      >
         Reset filters
       </button>
     </div>

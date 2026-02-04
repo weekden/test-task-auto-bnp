@@ -8,6 +8,8 @@ const initialState: CatalogState = {
   itemsPerPage: 12,
   selectedCategory: [],
   isFilters: false,
+  sortBy: '',
+  sortOrder: '',
 };
 
 export const productsSlice = createSlice({
@@ -36,8 +38,26 @@ export const productsSlice = createSlice({
       }
       state.currentPage = 1;
     },
+
+    setSort: (
+      state,
+      action: PayloadAction<{ sortBy: 'price' | 'title' | ''; sortOrder: 'asc' | 'desc' | '' }>,
+    ) => {
+      state.sortBy = action.payload.sortBy;
+      state.sortOrder = action.payload.sortOrder;
+      state.isFilters = true;
+      state.currentPage = 1;
+    },
+
+    resetFilter: (state) => {
+      state.isFilters = false;
+      state.selectedCategory = [];
+      state.sortBy = '';
+      state.sortOrder = '';
+      state.currentPage = 1;
+    },
   },
 });
 
-export const { setProducts, setPage, toggleCategory } = productsSlice.actions;
+export const { setProducts, setPage, toggleCategory, setSort, resetFilter } = productsSlice.actions;
 export default productsSlice.reducer;
