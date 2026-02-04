@@ -4,6 +4,7 @@ import { fetchProducts } from '../../api/products';
 import FilterPanel from '../../components/Aside/FilterPanel';
 import Pagination from '../../components/Pagination/Pagination';
 import ProductCard from '../../components/ProductCard/ProductCard';
+import Spinner from '../../components/Spinner/Spinner';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import {
   selectCurrentPage,
@@ -40,7 +41,12 @@ export const CatalogPage = () => {
     loadProducts();
   }, [dispatch]);
 
-  if (loading) return <div className={styles.center}>Loading...</div>;
+  if (loading)
+    return (
+      <div className={styles.center}>
+        <Spinner />
+      </div>
+    );
   if (error) return <div className={styles.center}>Error: {error}</div>;
 
   return (
