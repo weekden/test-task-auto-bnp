@@ -24,4 +24,5 @@ export interface CatalogState {
   items: Product[];
   currentPage: number;
   itemsPerPage: number;
+  selectedCategory: string[];
 }

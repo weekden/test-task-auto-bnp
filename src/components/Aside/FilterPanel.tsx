@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react';
 
 import { fetchCategories } from '../../api/products';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { selectSelectedCategory } from '../../store/catalogSelectors';
+import { toggleCategory } from '../../store/catalogSlice';
 import styles from './FilterPanel.module.css';
 
 function FilterPanel() {
   const [categories, setCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const dispatch = useAppDispatch();
+  const selectedCategory = useAppSelector(selectSelectedCategory);
 
   useEffect(() => {
     const loadCategories = async () => {
@@ -35,7 +41,12 @@ function FilterPanel() {
           {categories.map((item) => (
             <li key={item} className={styles.item}>
               <label className={styles.checkbox}>
-                <input type="checkbox" value={item} />
+                <input
+                  type="checkbox"
+                  value={item}
+                  onChange={() => dispatch(toggleCategory(item))}
+                  checked={selectedCategory.includes(item)}
+                />
                 <span>{item}</span>
               </label>
             </li>

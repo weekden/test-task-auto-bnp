@@ -6,6 +6,7 @@ const initialState: CatalogState = {
   items: [],
   currentPage: 1,
   itemsPerPage: 12,
+  selectedCategory: [],
 };
 
 export const productsSlice = createSlice({
@@ -19,8 +20,19 @@ export const productsSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.currentPage = action.payload;
     },
+
+    toggleCategory: (state, action: PayloadAction<string>) => {
+      const category = action.payload;
+      const index = state.selectedCategory.findIndex((item) => item === category);
+      if (index === -1) {
+        state.selectedCategory.push(category);
+      } else {
+        state.selectedCategory.splice(index, 1);
+      }
+      state.currentPage = 1;
+    },
   },
 });
 
-export const { setProducts, setPage } = productsSlice.actions;
+export const { setProducts, setPage, toggleCategory } = productsSlice.actions;
 export default productsSlice.reducer;
